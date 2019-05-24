@@ -1,13 +1,8 @@
 # 3talk
 Simple chat application
 
-<<<<<<< HEAD
 # Contributors
-<details>List</summary>
-=======
-#Contributors
-<details><summary>List</summary>
->>>>>>> master
+<details>List
 <p>
 | Name        |
 |-------------|
