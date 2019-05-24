@@ -1,11 +1,8 @@
 # 3talk
 Simple chat application
 
-# Contributors
-<details>List
-<p>
-| Name        |
-|-------------|
-| Sujeong Lee |
-</p>
-</details>
+## Members
+
+| Name | Role |
+|------|------|
+|Sujeong Lee| 0 |
