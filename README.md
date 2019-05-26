@@ -6,3 +6,4 @@ Simple chat application
 | Name | Role |
 |------|------|
 |Sujeong Lee| 0 |
+|Semyeong Lee| maintainer |
