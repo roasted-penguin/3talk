@@ -8,3 +8,4 @@ Simple chat application
 |Sujeong Lee| 0 |
 |Semyeong Lee| maintainer |
 |Kyungwan Woo| 1 |
+|Deokyoung KIm| 1|
