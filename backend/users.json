@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "김덕영",
+    "studentId": 2014034448,
+    "password": "qwert12345"
+  },
+  {
+    "id": 2,
+    "name": "삼송빵집",
+    "studentId": 2014034447,
+    "password": "qwert12345"
+  },
+  {
+    "id": 3,
+    "name": "고구마",
+    "studentId": 2014034446,
+    "password": "qwert12345"
+  },
+  {
+    "id": 4,
+    "name": "아이스티",
+    "studentId": 2014034445,
+    "password": "qwert12345"
+  }
+]
