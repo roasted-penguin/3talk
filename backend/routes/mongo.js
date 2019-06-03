@@ -3,13 +3,22 @@ var router = express.Router();
 var User = require('../models/user');
 
 router.get('/', function (req, res, next) {
-	var newuser = new User({username :"deokyoung" , password : "qwert12345" });
-	newuser.save();
-	var userInfo = User.findOne({"username " : "deokyoung"}, function(user){
-		res.render("mongo", {userinfo : user.username})
-	});
+	// var newuser = new User({username :"yoojeong" , password : "qwert12345" });
+	// newuser.save();
+	// var userInfo = User.find(function(user){
+	// 	console.log(user);
+	// 	res.render("mongo", {userinfo : "nothing"});
+	// });
+	// var userInfo = User.findOne({"username" : "deokyoung"});
+	// console.log(userInfo);
+	// res.render("mongo",{userinfo : userInfo.username});
 
-	// res.render("mongo",{userinfo : userInfo});
+
+	User.find({username : "yoojeong"},function(err,users){
+		if(err) return status(500).send({error:"database failure"});
+		// console.log(users.username);
+		res.json(users);
+	});
 });
 
 module.exports = router;
