@@ -8,12 +8,13 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/:id', function (req, res, next) {
-  var id = parseInt(req.params.id, 10)
-  // var	user = users.filter(function (user) {
-  //   return user.id === id
-  // });
-  // res.send(user)
-  res.send("hello");
+  var id = req.params.id
+  var newuser = new User({username : id, password: "abcdefg", image : "https://cdn3.iconfinder.com/data/icons/random-icon-set/512/user-512.png"});
+  newuser.save();
+  User.find({"username" : id}, function(err,users){
+  	if(err) return status(500).send({error:"database failure"});
+  	res.json(newuser);
+  });
 });
 
 router.post('/', function (req, res, next) {
