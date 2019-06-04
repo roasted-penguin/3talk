@@ -1,0 +1,17 @@
+[
+  {
+    "username" : "Mike",
+    "password" : "qwert12345",
+    "image" : "https://i.postimg.cc/vH3RgCK0/image-1.jpg"
+  },
+  {
+    "username" : "Kate",
+    "password" : "qwert12345",
+    "image" : "https://i.postimg.cc/HWzvBXtx/image.jpg"
+  },
+  {
+    "username" : "David",
+    "password" : "qwert12345",
+    "image" : "https://i.postimg.cc/brpMdR9X/image-2.jpg"
+  }
+]

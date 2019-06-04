@@ -13,7 +13,8 @@ router.get('/', function (req, res, next) {
 	// console.log(userInfo);
 	// res.render("mongo",{userinfo : userInfo.username});
 
-
+	// var users = await User.find();
+	// res.json(users);	
 	User.find({username : "yoojeong"},function(err,users){
 		if(err) return status(500).send({error:"database failure"});
 		// console.log(users.username);

@@ -3,7 +3,7 @@
 		<img id="logo" src="../assets/logo.png">
 		<div class="center container">
 			<div class="center">
-				<form action = "/api/users" method="post">
+				<form action = "/api/users/" method="post">
 					<label for="id" class = "a11y-hidden">아이디</label>
 					<input type="text" placeholder="user_id" id="id">
 					<label for="password" class = "a11y-hidden">아이디</label>
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+var userid = "userid";
 </script>
 
 <style>
