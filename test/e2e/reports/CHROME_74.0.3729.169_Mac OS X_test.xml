@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="test"
+    errors="0" failures="1" hostname="" id="" package="test" skipped="0"
+    tests="1" time="17.64" timestamp="Tue, 04 Jun 2019 09:00:22 GMT">
+  
+    <testcase name="default e2e tests" classname="test" time="17.64" assertions="2">
+
+      <failure message="Testing if element &lt;.hello&gt; is present.">    at Object.defaultE2eTests [as default e2e tests] (/Users/semyeonglee/Downloads/mevn-vue2-chat-app-example-master/test/e2e/specs/test.js:14:15)
+    at process._tickCallback (internal/process/next_tick.js:61:11)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>
