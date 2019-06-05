@@ -8,7 +8,7 @@
 <input type="text" placeholder="user_id" id="id">
 <label for="password" class = "a11y-hidden">아이디</label>
 <input type="password" placeholder="user_password" id="password">
-<TalkButton @click="handleClick">이동</TalkButton>
+<BlueButton @click="handleClick">Log in</BlueButton>
 
 </form>
 
@@ -18,10 +18,15 @@
 <script>
 
 import axios from 'axios'
-import TalkButton from '@/components/src/3talkButton'
+import BlueButton from '@/components/src/blueButton'
 
 export default {
   name: 'LoginPage',
+
+  components :{
+  	BlueButton
+  },
+
   data () {
     return {
      
@@ -32,7 +37,7 @@ export default {
   },
   methods: {
     handleClick(ev){
-    this.$router.push('/room-list')
+    this.$router.get('/room-list')
     }
   }
 }

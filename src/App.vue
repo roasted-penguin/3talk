@@ -14,8 +14,12 @@ export default {
 </script>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&display=swap');
+
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  color: #2c3e50;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display : flex ;
@@ -23,7 +27,6 @@ export default {
   justify-content : center;
   align-items : center;
   background-color : #eee;
-  color: #2c3e50;
 }
 #main-box {
   padding : 30px;
