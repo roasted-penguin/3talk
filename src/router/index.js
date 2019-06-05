@@ -11,7 +11,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/room-list',
       name: 'RoomList',
       component: RoomList
     },
@@ -31,7 +31,7 @@ export default new Router({
       component: ChatRoom
     },
     {
-      path: '/login',
+      path: '/',
       name: 'LoginPage',
       component: LoginPage
     }
