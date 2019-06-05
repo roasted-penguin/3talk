@@ -1,14 +1,14 @@
 <template>
-<div id="main-box">
+<div id="content-box">
 <img src="@/assets/logo.png" id ="logo">
 
 <form action="#" >
 
 <label for="id" class = "a11y-hidden">아이디</label>
-<input type="text" placeholder="user_id" id="id">
+<input1 type="text" placeholder="user_id" id="id"></input1>
 <label for="password" class = "a11y-hidden">아이디</label>
-<input type="password" placeholder="user_password" id="password">
-<TalkButton @click="handleClick">이동</TalkButton>
+<input1 type="password" placeholder="user_password" id="password"></input1>
+<blueButton v-on:click.native="handleClick">Log in</blueButton>
 
 </form>
 
@@ -18,10 +18,17 @@
 <script>
 
 import axios from 'axios'
-import TalkButton from '@/components/src/3talkButton'
+import BlueButton from '@/components/src/blueButton'
+import input1 from '@/components/src/inputType1'
 
 export default {
   name: 'LoginPage',
+
+  components :{
+  	BlueButton,
+    input1
+  },
+
   data () {
     return {
      
@@ -32,7 +39,7 @@ export default {
   },
   methods: {
     handleClick(ev){
-    this.$router.push('/room-list')
+    this.$router.get('/room-list')
     }
   }
 }
@@ -40,10 +47,14 @@ export default {
 
 <style>
 
-#main-box{
+#content-box{
+  padding : 30px;
 	display : flex;
 	flex-direction : column;
 	align-items: center;
+  background-image : url("~@/assets/login_background.png") !important;
+  background-size : cover;
+  height : 100%;
 }
 
 #logo{
