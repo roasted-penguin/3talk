@@ -32,7 +32,7 @@ export default {
 	padding : 0.6em 1.3em;
 	background-color :#017bff ;
 	border-radius: 0.8em;
-	border : none;
+	border : 1em solid #333;
 	color : #fff;
 }
 

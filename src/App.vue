@@ -29,7 +29,6 @@ export default {
   background-color : #eee;
 }
 #main-box {
-  padding : 30px;
   width : 40vw;
   min-width: 500px;
   height : 100vh;
