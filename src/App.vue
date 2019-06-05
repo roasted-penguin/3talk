@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <div id="main-box">
+      <router-view/>
+    </div>
   </div>
+</template>
 </template>
 
 <script>
@@ -16,8 +18,18 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  display : flex ;
+  flex-direction : column;
+  justify-content : center;
+  align-items : center;
+  background-color : #eee;
   color: #2c3e50;
-  margin-top: 60px;
+}
+#main-box {
+  padding : 30px;
+  width : 40vw;
+  min-width: 500px;
+  height : 100vh;
+  background-color : #fff;
 }
 </style>

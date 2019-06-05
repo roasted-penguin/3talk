@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import RoomList from '@/components/RoomList'
-import AddRoom from '@/components/AddRoom'
-import JoinRoom from '@/components/JoinRoom'
-import ChatRoom from '@/components/ChatRoom'
+import RoomList from '@/components/view/RoomList'
+import AddRoom from '@/components/view/AddRoom'
+import JoinRoom from '@/components/view/JoinRoom'
+import ChatRoom from '@/components/view/ChatRoom'
+import LoginPage from '@/components/view/LoginPage'
 
 Vue.use(Router)
 
@@ -28,6 +29,12 @@ export default new Router({
       path: '/chat-room/:id/:nickname',
       name: 'ChatRoom',
       component: ChatRoom
+    },
+    {
+      path: '/login',
+      name: 'LoginPage',
+      component: LoginPage
     }
+
   ]
 })
