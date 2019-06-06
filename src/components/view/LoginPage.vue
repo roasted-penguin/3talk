@@ -12,7 +12,15 @@
 
 </form>
 
+<div id="footer">
+<span @click="formOpen" v-show="!modalIsOpen"><a>Join Us</a></span>
 </div>
+<div id="modal-container">
+<newUser></newUser>
+<span @click="formClose"> close </span>
+</div>
+</div>
+
 </template>
 
 <script>
@@ -20,27 +28,45 @@
 import axios from 'axios'
 import BlueButton from '@/components/src/blueButton'
 import input1 from '@/components/src/inputType1'
+import newUser from '@/components/subview/newUserModal'
 
 export default {
   name: 'LoginPage',
 
   components :{
   	BlueButton,
-    input1
+    input1,
+    newUser
   },
 
   data () {
     return {
      
+     modalIsOpen :  false
+
+
     }
   },
   created () {
 
   },
   methods: {
-    handleClick(ev){
+    handleClick : function(ev){
     this.$router.get('/room-list')
+    },
+
+    formOpen : function(ev){
+
+    this.$el.querySelector('#modal-container').style.opacity = 1;
+    this.modalIsOpen = true;
+
+    },
+
+    formClose : function(ev){
+    this.$el.querySelector('#modal-container').style.opacity = 0;
+    this.modalIsOpen = false;
     }
+
   }
 }
 </script>
@@ -83,4 +109,27 @@ form> TalkButton{
     overflow: hidden;
     clip: rect(1px 1px 1px 1px); 
 }
+
+#footer{
+  position : absolute;
+  bottom : 50px;
+  color : #fff;
+  font-weight : bold;
+}
+
+#footer : hover{
+  background-color : #eee;
+  opacity : 0.3;
+}
+
+#modal-container{
+  position :absolute ;
+  top : 50vh;
+  transform : translateY(-50%);
+  background-color : #eee;
+  opacity : 0;
+  transition : all 0.3s ease;
+  box-shadow: 0px 0px 54px -10px rgba(0,0,0,0.38);
+}
+
 </style>
