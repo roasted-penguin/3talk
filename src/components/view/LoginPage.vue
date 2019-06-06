@@ -8,7 +8,7 @@
 <input1 type="text" placeholder="user_id" id="id"></input1>
 <label for="password" class = "a11y-hidden">아이디</label>
 <input1 type="password" placeholder="user_password" id="password"></input1>
-<blueButton v-on:click.native="handleClick">Log in</blueButton>
+<blueButton @click="handleClick" v-on:mouseover="handleHover" >Log in</blueButton>
 
 </form>
 
@@ -54,7 +54,11 @@ export default {
 
   methods: {
     handleClick : function(ev){
-    this.$router.get('/room-list')
+    this.$router.push('/room-list');
+    },
+
+    handleHover : function(ev){
+      this.$el.querySelector('blueButton').style.border = "1px solid #fff";
     },
 
     formOpen : function(ev){
@@ -115,10 +119,6 @@ form> TalkButton{
   font-weight : bold;
 }
 
-#footer : hover{
-  background-color : #eee;
-  opacity : 0.3;
-}
 
 #modal-container{
   position :absolute ;
