@@ -87,6 +87,8 @@ export default {
 
 #logo{
 	margin-top : 2em;
+	width : 15em;
+	transfrom: traslateY(-15%);
 }
 
 form {
