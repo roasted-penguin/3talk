@@ -49,7 +49,10 @@ export default {
   },
   created () {
 
+
+  this.$el.querySelector('#modal-container').style.display = none;
   },
+
   methods: {
     handleClick : function(ev){
     this.$router.get('/room-list')
@@ -58,12 +61,14 @@ export default {
     formOpen : function(ev){
 
     this.$el.querySelector('#modal-container').style.opacity = 1;
+    this.$el.querySelector('#modal-container').style.display = initial;
     this.modalIsOpen = true;
 
     },
 
     formClose : function(ev){
     this.$el.querySelector('#modal-container').style.opacity = 0;
+    this.$el.querySelector('#modal-container').style.display = none;
     this.modalIsOpen = false;
     }
 
