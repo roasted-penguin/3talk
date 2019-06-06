@@ -1,5 +1,5 @@
 <template>
-<button class="blueButton" :disabled="disabled" type="button" @click="handleClick"><slot /></button>
+<button class="blueButton" :disabled="disabled" type="button" @click="handleClick" @mouseover="handleHover"><slot /></button>
 </template>
 <script>
 export default {
@@ -20,9 +20,15 @@ export default {
 
 	methods:{
 
-	handleClick(ev){
-	this.$emit('click',ev)
+	handleClick : function(ev){
+	this.$emit('click',ev);
+	},
+
+	handleHover : function(ev){
+	this.$emit('mouseover',ev);
+	this.$el.querySelector('.blueButton').style.display = hidden;
 	}
+
 	}
 }
 </script>
@@ -34,6 +40,7 @@ export default {
 	border-radius: 0.8em;
 	border : none;
 	color : #fff;
+	opacity : 1;
 }
 
 
