@@ -1,10 +1,10 @@
 <template>
   <b-row>
     <b-col cols="12">
-      <h2>
+      <h3>
         Room List
         <b-link href="#/add-room">(Add Room)</b-link>
-      </h2>
+      </h3>
       <b-table striped hover :items="rooms" :fields="fields">
         <template slot="actions" scope="row">
           <b-btn size="sm" @click.stop="join(row.item._id)">Join</b-btn>
@@ -29,7 +29,7 @@ export default {
     return {
       fields: {
         room_name: { label: 'Room Name', sortable: true, 'class': 'text-center' },
-        created_date: { label: 'Created Date', sortable: true },
+        created_date: { label: 'Created Date', sortable: true, 'class': 'text-center' },
         actions: { label: 'Action', 'class': 'text-center' }
       },
       rooms: [],
