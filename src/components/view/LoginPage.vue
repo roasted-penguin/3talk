@@ -15,7 +15,7 @@
 <div id="footer">
 <span @click="formOpen" v-show="!modalIsOpen"><a>Join Us</a></span>
 </div>
-<div id="modal-container">
+<div id="modal-container" v-show="modalIsOpen">
 <newUser></newUser>
 <span @click="formClose"> close </span>
 </div>
@@ -50,7 +50,6 @@ export default {
   created () {
 
 
-  this.$el.querySelector('#modal-container').style.display = none;
   },
 
   methods: {
@@ -59,16 +58,10 @@ export default {
     },
 
     formOpen : function(ev){
-
-    this.$el.querySelector('#modal-container').style.opacity = 1;
-    this.$el.querySelector('#modal-container').style.display = initial;
     this.modalIsOpen = true;
-
     },
 
     formClose : function(ev){
-    this.$el.querySelector('#modal-container').style.opacity = 0;
-    this.$el.querySelector('#modal-container').style.display = none;
     this.modalIsOpen = false;
     }
 
@@ -132,8 +125,6 @@ form> TalkButton{
   top : 50vh;
   transform : translateY(-50%);
   background-color : #eee;
-  opacity : 0;
-  transition : all 0.3s ease;
   box-shadow: 0px 0px 54px -10px rgba(0,0,0,0.38);
 }
 
