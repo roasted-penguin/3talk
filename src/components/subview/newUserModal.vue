@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id= "newUserModal">
 	<form action="#" method="post">
 	<label for="user_id">아이디</label>
 	<input1 id="user_id"></input1>
@@ -36,6 +36,11 @@ export default {
 }
 </script>
 <style>
+
+#newUserModal {
+  width : 20vw;
+}
+
  .a11y-hidden{
 	position: absolute !important;
     height: 1px; width: 1px;
