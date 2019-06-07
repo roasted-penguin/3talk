@@ -1,46 +1,54 @@
 <template>
   <b-row>
+  
     <b-col cols="12">
       <h2>
-        Chat Room - <b-btn size="sm" @click.stop="logout()">Logout</b-btn>
+        <!-- Room을 Roomname이 저장된 db에서 받아온 방이름으로 바꿔야함 -->
+        roomname - <b-btn size="sm" @click.stop="logout()">Logout</b-btn>        
       </h2>
       <b-list-group class="panel-body" v-chat-scroll>
         <b-list-group-item v-for="(item, index) in chats" class="chat">
-          <div class="left clearfix" v-if="item.nickname === nickname">
-            <b-img left src="http://placehold.it/50/55C1E7/fff&text=ME" rounded="circle" width="75" height="75" alt="img" class="m-1" />
+
+          <div class="right clearfix" v-if="item.nickname === nickname">
+            <b-img right src="http://placehold.it/50/55C1E7/fff&text=ME" rounded="circle" width="50" height="50" alt="img" class="m-1" />
             <div class="chat-body clearfix">
               <div class="header">
-                <strong class="primary-font">{{ item.nickname }}</strong> <small class="pull-right text-muted">
+                <strong class="primary-font">{{ item.nickname }}</strong> <small class="pull-left text-muted">
                 <span class="glyphicon glyphicon-time"></span>{{ item.created_date }}</small>
               </div>
               <p>{{ item.message }}</p>
             </div>
           </div>
-          <div class="right clearfix" v-else>
-            <b-img right src="http://placehold.it/50/55C1E7/fff&text=U" rounded="circle" width="75" height="75" alt="img" class="m-1" />
+
+          <div class="left clearfix" v-else>
+            <b-img left src="http://placehold.it/50/55C1E7/fff&text=U" rounded="circle" width="50" height="50" alt="img" class="m-1" />
             <div class="chat-body clearfix">
               <div class="header">
-                <strong class="primary-font">{{ item.nickname }}</strong> <small class="pull-right text-muted">
+                <strong class="primary-font">{{ item.nickname }}</strong> <small class="pull-left text-muted">
                 <span class="glyphicon glyphicon-time"></span>{{ item.created_date }}</small>
               </div>
               <p>{{ item.message }}</p>
             </div>
           </div>
+
         </b-list-group-item>
       </b-list-group>
+
       <ul v-if="errors && errors.length">
         <li v-for="error of errors">
           {{error.message}}
         </li>
       </ul>
+
       <b-form @submit="onSubmit" class="chat-form">
-        <b-input-group prepend="Message">
+        <b-input-group prepend="Message  ">
           <b-form-input id="message" :state="state" v-model.trim="chat.message"></b-form-input>
           <b-input-group-append>
             <b-btn type="submit" variant="info">Send</b-btn>
           </b-input-group-append>
         </b-input-group>
       </b-form>
+
     </b-col>
   </b-row>
 </template>
@@ -104,21 +112,24 @@ export default {
 </script>
 
 <style>
+  /* left,right 채팅블록. margin : 그림과 text사이 간격 */
   .chat .left .chat-body {
     text-align: left;
-    margin-left: 100px;
+    margin-left: 80px;
   }
 
   .chat .right .chat-body {
     text-align: right;
-    margin-right: 100px;
+    margin-right: 80px;
   }
 
+  /* 채팅글자 */
   .chat .chat-body p {
     margin: 0;
     color: #777777;
   }
-
+  
+  /* 전체채팅창 */
   .panel-body {
     overflow-y: scroll;
     height: 350px;
