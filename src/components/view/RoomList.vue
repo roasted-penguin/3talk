@@ -1,10 +1,12 @@
 <template>
   <b-row>
     <b-col cols="12">
-      <h3>
-        Room List
-        <b-link href="#/add-room">(Add Room)</b-link>
-      </h3>
+       <img src="@/assets/roomlist.png" id ="logo">
+       <div class="img-banner" :style="{'background-image': 'url(' + require('@/assets/addroom_background.png') + ')'}"></div>
+      <h2>
+        <b-link href="#/add-room">㊉</b-link>
+      </h2>
+      <div>{{ description }}</div>
       <b-table striped hover :items="rooms" :fields="fields">
         <template slot="actions" scope="row">
           <b-btn size="sm" @click.stop="join(row.item._id)">Join</b-btn>
@@ -20,9 +22,7 @@
 </template>
 
 <script>
-
 import axios from 'axios'
-
 export default {
   name: 'RoomList',
   data () {
@@ -56,3 +56,17 @@ export default {
   }
 }
 </script>
+
+<style>
+
+#img-banner{
+  padding : 30px;
+	display : flex;
+	flex-direction : column;
+	align-items: center;
+  background-image : url("~@/assets/addroom_background.png") !important;
+  background-size : cover;
+  height : 100%;
+}
+
+</style>
