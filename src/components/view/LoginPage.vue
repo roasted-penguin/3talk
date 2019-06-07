@@ -1,5 +1,6 @@
 <template>
 <div id="content-box">
+<userNav> </userNav>
 <img src="@/assets/logo.png" id ="logo">
 
 <form action="#" >
@@ -16,8 +17,8 @@
 <span @click="formOpen" v-show="!modalIsOpen"><a>Join Us</a></span>
 </div>
 <div id="modal-container" v-show="modalIsOpen">
+<img src="@/assets/closebtn.png" @click="formClose"></img>
 <newUser></newUser>
-<span @click="formClose"> close </span>
 </div>
 </div>
 
@@ -29,6 +30,7 @@ import axios from 'axios'
 import BlueButton from '@/components/src/blueButton'
 import input1 from '@/components/src/inputType1'
 import newUser from '@/components/subview/newUserModal'
+import userNav from '@/components/subview/userNav'
 
 export default {
   name: 'LoginPage',
@@ -36,7 +38,8 @@ export default {
   components :{
   	BlueButton,
     input1,
-    newUser
+    newUser,
+    userNav
   },
 
   data () {
@@ -119,6 +122,12 @@ form> TalkButton{
   bottom : 50px;
   color : #fff;
   font-weight : bold;
+}
+
+#modal-container > img{
+	margin-top : 20px;
+	width : 1.5em;
+
 }
 
 
