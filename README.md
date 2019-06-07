@@ -30,7 +30,7 @@
 |Kyungwan Woo| 1 |
 |Soonwoo Kwon| 2 |
 |Deokyoun Kim| 3 |
-|Taeyeong Kim| 4 |
+|Taewoong Kim| 4 |
 
 # License
 [MIT](http://opensource.org/licenses/MIT)
