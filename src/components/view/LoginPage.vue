@@ -1,5 +1,6 @@
 <template>
 <div id="content-box">
+<userNav> </userNav>
 <img src="@/assets/logo.png" id ="logo">
 
 <form action="#" >
@@ -29,6 +30,7 @@ import axios from 'axios'
 import BlueButton from '@/components/src/blueButton'
 import input1 from '@/components/src/inputType1'
 import newUser from '@/components/subview/newUserModal'
+import userNav from '@/components/subview/userNav'
 
 export default {
   name: 'LoginPage',
@@ -36,7 +38,8 @@ export default {
   components :{
   	BlueButton,
     input1,
-    newUser
+    newUser,
+    userNav
   },
 
   data () {
