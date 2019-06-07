@@ -17,8 +17,8 @@
 <span @click="formOpen" v-show="!modalIsOpen"><a>Join Us</a></span>
 </div>
 <div id="modal-container" v-show="modalIsOpen">
+<img src="@/assets/closebtn.png" @click="formClose"></img>
 <newUser></newUser>
-<span @click="formClose"> close </span>
 </div>
 </div>
 
@@ -122,6 +122,12 @@ form> TalkButton{
   bottom : 50px;
   color : #fff;
   font-weight : bold;
+}
+
+#modal-container > img{
+	margin-top : 20px;
+	width : 1.5em;
+
 }
 
 
