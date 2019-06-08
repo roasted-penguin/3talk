@@ -20,6 +20,7 @@
     
 
 <img id="addRoomBtn" src="@/assets/openbtn.png" @click="open" v-show="!modalIsOpen"></img>
+
 <div id="addRoomModal" v-show="modalIsOpen">
   <addRoomModal></addRoomModal>
   <img id="close-addRoomBtn"src="@/assets/closebtn.png" @click ="close"></img>
@@ -91,9 +92,9 @@ export default {
 <style>
 
 #Modal-container{
+position:relative;
 display : flex;
 flex-direction : column;
-position : relative;
 background-color : #eee;
 width  : 30vw;
 min-width : 450px;
@@ -110,10 +111,11 @@ scrollbar-width: none; /* Firefox */
 #chatListTable{
 }
 #addRoomBtn {
-  position : absolute;
+  position : fixed;
   bottom : 10px;
   width : 50px;
-  right : 10px;
+  right : 50%;
+  transform : translateX(50%);
  align-self: center;
  margin-bottom : 50px;
 }
@@ -132,6 +134,5 @@ scrollbar-width: none; /* Firefox */
   background-color : #fff;
   border : 2px solid #eee;
 }
-
 
 </style>
