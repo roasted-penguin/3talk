@@ -4,7 +4,7 @@ import RoomList from '@/components/view/RoomList'
 import AddRoom from '@/components/view/AddRoom'
 import JoinRoom from '@/components/view/JoinRoom'
 import ChatRoom from '@/components/view/ChatRoom'
-import LoginPage from '@/components/view/LoginPage'
+import IndexPage from '@/components/view/IndexPage'
 
 Vue.use(Router)
 
@@ -32,8 +32,8 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'LoginPage',
-      component: LoginPage
+      name: 'IndexPage',
+      component: IndexPage
     }
 
   ]
