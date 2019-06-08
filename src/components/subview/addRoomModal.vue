@@ -31,9 +31,7 @@ export default {
       evt.preventDefault()
       axios.post(`http://localhost:3000/api/room`, this.room)
       .then(response => {
-        this.$router.push({
-          name: 'RoomList'
-        })
+        this.$router.go(0);
       })
       .catch(e => {
         this.errors.push(e)
