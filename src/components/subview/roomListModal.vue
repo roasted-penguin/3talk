@@ -1,39 +1,36 @@
 <template>
 
-<div id="room-list">
 
-<div>
-<span> room-list </span>
-<b-link href="#/add-room">㊉</b-link>
-</div>
+<div id="Modal-container">
 
 
-  <b-row>
-    <b-col cols="12">
-      <b-table striped hover :items="rooms" :fields="fields">
-        <template slot="actions" scope="row">
-          <b-btn size="sm" @click.stop="join(row.item._id)">Join</b-btn>
-        </template>
-      </b-table>
-      <ul v-if="errors && errors.length">
-        <li v-for="error of errors">
-          {{error.message}}
-        </li>
-      </ul>
-    </b-col>
-  </b-row>
+
+
+<b-table striped hover :items="rooms" :fields="fields">
+  <template slot="actions" scope="row">
+    <b-btn size="sm" @click.stop="join(row.item._id)">Join</b-btn>
+  </template>
+</b-table>
+
+<ul v-if="errors && errors.length">
+  <li v-for="error of errors">
+    {{error.message}}
+  </li>
+</ul>
+    
+
   
-
-
 
 </div>
 
 </template>
 
 <script>
+
 import axios from 'axios'
+
 export default {
-  name: 'RoomList',
+  name: 'roomListModal',
 
   data () {
     return {
@@ -47,6 +44,7 @@ export default {
       errors: []
     }
   },
+
   created () {
     axios.get(`http://localhost:3000/api/room`)
     .then(response => {
@@ -56,6 +54,7 @@ export default {
       this.errors.push(e)
     })
   },
+
   methods: {
     join (id) {
       console.log(id)
@@ -70,5 +69,9 @@ export default {
 </script>
 
 <style>
+
+#Modal-container{
+  background-color : #eee;
+}
 
 </style>

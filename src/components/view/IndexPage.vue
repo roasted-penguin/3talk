@@ -41,7 +41,7 @@ export default {
 
   methods: {
     handleClick : function(ev){
-    this.$router.push('/room-list');
+    this.$router.push('/main');
     },
 
     handleHover : function(ev){
