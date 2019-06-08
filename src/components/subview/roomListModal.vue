@@ -20,7 +20,7 @@
     
 
 <img id="addRoomBtn" src="@/assets/closebtn.png" @click="open"></span>
-<addRoomModal id="addRoomModal"></addRoomModal>
+<addRoomModal id="addRoomModal" v-show="modalIsOpen"></addRoomModal>
 </div>
 
 </template>
@@ -48,7 +48,8 @@ export default {
         actions: { label: 'Action', 'class': 'text-center' }
       },
       rooms: [],
-      errors: []
+      errors: [],
+      modalIsOpen : false
     }
   },
 
@@ -73,7 +74,7 @@ export default {
   },
 
   open : function(){
-  this.$router.push('/add-room');
+  modalIsOpen = true;
   }
   }
 }
@@ -104,8 +105,6 @@ scrollbar-width: none; /* Firefox */
   width : 50px;
    align-self: center;
 }
-#addRoomModal{
-  visibility : hidden;
-}
+
 
 </style>
