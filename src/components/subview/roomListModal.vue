@@ -6,7 +6,7 @@
 
 
 
-<b-table striped hover :items="rooms" :fields="fields">
+<b-table id="chatListTable" striped hover :items="rooms" :fields="fields">
   <template slot="actions" scope="row">
     <b-btn size="sm" @click.stop="join(row.item._id)">Join</b-btn>
   </template>
@@ -19,8 +19,8 @@
 </ul>
     
 
-  
-
+<img id="addRoomBtn" src="@/assets/closebtn.png" @click="open"></span>
+<addRoomModal id="addRoomModal"></addRoomModal>
 </div>
 
 </template>
@@ -28,9 +28,16 @@
 <script>
 
 import axios from 'axios'
+import addRoomModal from '@/components/subview/addRoomModal'
 
 export default {
   name: 'roomListModal',
+
+  components : {
+
+  addRoomModal
+  
+  },
 
   data () {
     return {
@@ -63,6 +70,10 @@ export default {
         params: { id: id }
       })
 
+  },
+
+  open : function(){
+  this.$router.push('/add-room');
   }
   }
 }
@@ -71,7 +82,30 @@ export default {
 <style>
 
 #Modal-container{
-  background-color : #eee;
+display : flex;
+flex-direction : column;
+position : relative;
+background-color : #eee;
+width  : 30vw;
+min-width : 450px;
+height : 70vh;
+overflow-y : scroll;
+scrollbar-width: none; /* Firefox */
+-ms-overflow-style: none; /* IE 10+ */
+}
+
+#Modal-container::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+#chatListTable{
+}
+#addRoomBtn {
+  width : 50px;
+   align-self: center;
+}
+#addRoomModal{
+  visibility : hidden;
 }
 
 </style>

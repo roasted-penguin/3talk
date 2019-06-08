@@ -1,9 +1,10 @@
 <template>
 
-<div id="room-list">
+<div id="main_container">
 
 <span> room-list </span>
 <b-link href="#/add-room">㊉</b-link>
+
 <roomListModal></roomListModal>
 </div>
 
@@ -39,5 +40,11 @@ export default {
 </script>
 
 <style>
+
+#main_container {
+  display : flex;
+  flex-direction : column;
+  align-items : center;
+}
 
 </style>
