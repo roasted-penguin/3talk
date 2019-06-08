@@ -1,25 +1,14 @@
 <template>
 <div id="content-box">
-<userNav> </userNav>
+
 <img src="@/assets/logo.png" id ="logo">
 
 <form action="#" >
 
-<label for="id" class = "a11y-hidden">아이디</label>
-<input1 type="text" placeholder="user_id" id="id"></input1>
-<label for="password" class = "a11y-hidden">아이디</label>
-<input1 type="password" placeholder="user_password" id="password"></input1>
-<blueButton @click="handleClick" v-on:mouseover="handleHover" >Log in</blueButton>
+<blueButton @click="handleClick" v-on:mouseover="handleHover" >Enter</blueButton>
 
 </form>
 
-<div id="footer">
-<span @click="formOpen" v-show="!modalIsOpen"><a>Join Us</a></span>
-</div>
-<div id="modal-container" v-show="modalIsOpen">
-<img src="@/assets/closebtn.png" @click="formClose"></img>
-<newUser></newUser>
-</div>
 </div>
 
 </template>
@@ -28,18 +17,13 @@
 
 import axios from 'axios'
 import BlueButton from '@/components/src/blueButton'
-import input1 from '@/components/src/inputType1'
-import newUser from '@/components/subview/newUserModal'
-import userNav from '@/components/subview/userNav'
 
 export default {
   name: 'LoginPage',
 
   components :{
   	BlueButton,
-    input1,
-    newUser,
-    userNav
+ 
   },
 
   data () {
@@ -115,28 +99,6 @@ form> TalkButton{
     height: 1px; width: 1px;
     overflow: hidden;
     clip: rect(1px 1px 1px 1px); 
-}
-
-#footer{
-  position : absolute;
-  bottom : 50px;
-  color : #fff;
-  font-weight : bold;
-}
-
-#modal-container > img{
-	margin-top : 20px;
-	width : 1.5em;
-
-}
-
-
-#modal-container{
-  position :absolute ;
-  top : 50vh;
-  transform : translateY(-50%);
-  background-color : #eee;
-  box-shadow: 0px 0px 54px -10px rgba(0,0,0,0.38);
 }
 
 </style>
