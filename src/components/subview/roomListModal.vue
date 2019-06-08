@@ -19,8 +19,11 @@
 </ul>
     
 
-<img id="addRoomBtn" src="@/assets/closebtn.png" @click="open"></span>
-<addRoomModal id="addRoomModal" v-show="modalIsOpen"></addRoomModal>
+<img id="addRoomBtn" src="@/assets/openbtn.png" @click="open" v-show="!modalIsOpen"></img>
+<div id="addRoomModal" v-show="modalIsOpen">
+  <addRoomModal></addRoomModal>
+  <img id="close-addRoomBtn"src="@/assets/closebtn.png" @click ="close"></img>
+</div>
 </div>
 
 </template>
@@ -73,9 +76,14 @@ export default {
 
   },
 
-  open : function(){
-  modalIsOpen = true;
+  open : function(ev){
+  this.modalIsOpen = true;
+  },
+  
+  close : function(ev){
+  this.modalIsOpen = false;
   }
+
   }
 }
 </script>
@@ -102,8 +110,27 @@ scrollbar-width: none; /* Firefox */
 #chatListTable{
 }
 #addRoomBtn {
+  position : absolute;
+  bottom : 10px;
   width : 50px;
-   align-self: center;
+  right : 10px;
+ align-self: center;
+ margin-bottom : 50px;
+}
+#close-addRoomBtn{
+  width : 30px;
+}
+
+#addRoomModal{
+  display : flex;
+  flex-direction: column;
+  align-items : center;
+  position : absolute;
+  align-self: center;
+  bottom: 10px;
+  width : 400px;
+  background-color : #fff;
+  border : 2px solid #eee;
 }
 
 

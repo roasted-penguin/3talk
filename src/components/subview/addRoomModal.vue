@@ -1,19 +1,17 @@
 <template>
 <div>
-<h2>
-Add Room
-<b-link href="#/">(Room List)</b-link>
-</h2>
+<div id="addroom-container">
+
+<span>Add Room</span>
+
 <b-form @submit="onSubmit">
-<b-form-group id="fieldsetHorizontal"
-          horizontal
-          :label-cols="4"
-          breakpoint="md"
-          label="Enter Room Name">
-  <b-form-input id="room_name" :state="state" v-model.trim="room.room_name"></b-form-input>
+<b-form-group id="fieldsetHorizontal">
+  <b-form-input id="room_name" :state="state" v-model.trim="room.room_name" placeholder="chatroom name"></b-form-input>
 </b-form-group>
 <b-button type="submit" variant="primary">Add</b-button>
 </b-form>
+
+</div>
 </div>
 
 </template>
@@ -46,5 +44,16 @@ export default {
 </script>
 
 <style>
-
+#addroom-container{
+  position : relative;
+  display : flex;
+  flex-direction : row;
+  justify-content : center;
+}
+#addroom-container > span{
+  position: absolute;
+}
+#addroom-container>form{
+  margin-top : 50px;
+}
 </style>
