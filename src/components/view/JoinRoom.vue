@@ -1,24 +1,22 @@
 <template>
-  <b-row>
-    <b-col align-self="start">&nbsp;</b-col>
-    <b-col cols="6" align-self="center">
-      <h2>
-        Join Room
-        <b-link href="#/">(Room List)</b-link>
-      </h2>
-      <b-form @submit="onSubmit">
-        <b-form-group id="fieldsetHorizontal"
-                  horizontal
-                  :label-cols="4"
-                  breakpoint="md"
-                  label="Enter Nickname">
-          <b-form-input id="nickname" :state="state" v-model.trim="chat.nickname"></b-form-input>
-        </b-form-group>
-        <b-button type="submit" variant="primary">Join</b-button>
-      </b-form>
-    </b-col>
-    <b-col align-self="end">&nbsp;</b-col>
-  </b-row>
+
+<div>
+<h2>
+  Join Room
+  <b-link href="#/">(Room List)</b-link>
+</h2>
+<b-form @submit="onSubmit">
+  <b-form-group id="fieldsetHorizontal"
+            horizontal
+            :label-cols="4"
+            breakpoint="md"
+            label="Enter Nickname">
+    <b-form-input id="nickname" :state="state" v-model.trim="chat.nickname"></b-form-input>
+  </b-form-group>
+  <b-button type="submit" variant="primary">Join</b-button>
+</b-form>
+</div>
+
 </template>
 
 <script>

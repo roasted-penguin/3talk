@@ -91,7 +91,7 @@ export default {
     logout () {
       this.socket.emit('save-message', { room: this.chat.room, nickname: this.chat.nickname, message: this.chat.nickname + ' left this room', created_date: new Date() });
       this.$router.push({
-        name: 'RoomList'
+        name: 'mainPage'
       })
     },
     onSubmit (evt) {

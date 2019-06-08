@@ -6,7 +6,7 @@
 
 
 
-<b-table striped hover :items="rooms" :fields="fields">
+<b-table id="chatListTable" striped hover :items="rooms" :fields="fields">
   <template slot="actions" scope="row">
     <b-btn size="sm" @click.stop="join(row.item._id)">Join</b-btn>
   </template>
@@ -19,8 +19,11 @@
 </ul>
     
 
-  
-
+<img id="addRoomBtn" src="@/assets/openbtn.png" @click="open" v-show="!modalIsOpen"></img>
+<div id="addRoomModal" v-show="modalIsOpen">
+  <addRoomModal></addRoomModal>
+  <img id="close-addRoomBtn"src="@/assets/closebtn.png" @click ="close"></img>
+</div>
 </div>
 
 </template>
@@ -28,9 +31,16 @@
 <script>
 
 import axios from 'axios'
+import addRoomModal from '@/components/subview/addRoomModal'
 
 export default {
   name: 'roomListModal',
+
+  components : {
+
+  addRoomModal
+  
+  },
 
   data () {
     return {
@@ -41,7 +51,8 @@ export default {
         actions: { label: 'Action', 'class': 'text-center' }
       },
       rooms: [],
-      errors: []
+      errors: [],
+      modalIsOpen : false
     }
   },
 
@@ -63,7 +74,16 @@ export default {
         params: { id: id }
       })
 
+  },
+
+  open : function(ev){
+  this.modalIsOpen = true;
+  },
+  
+  close : function(ev){
+  this.modalIsOpen = false;
   }
+
   }
 }
 </script>
@@ -71,7 +91,47 @@ export default {
 <style>
 
 #Modal-container{
-  background-color : #eee;
+display : flex;
+flex-direction : column;
+position : relative;
+background-color : #eee;
+width  : 30vw;
+min-width : 450px;
+height : 70vh;
+overflow-y : scroll;
+scrollbar-width: none; /* Firefox */
+-ms-overflow-style: none; /* IE 10+ */
 }
+
+#Modal-container::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+#chatListTable{
+}
+#addRoomBtn {
+  position : absolute;
+  bottom : 10px;
+  width : 50px;
+  right : 10px;
+ align-self: center;
+ margin-bottom : 50px;
+}
+#close-addRoomBtn{
+  width : 30px;
+}
+
+#addRoomModal{
+  display : flex;
+  flex-direction: column;
+  align-items : center;
+  position : absolute;
+  align-self: center;
+  bottom: 10px;
+  width : 400px;
+  background-color : #fff;
+  border : 2px solid #eee;
+}
+
 
 </style>

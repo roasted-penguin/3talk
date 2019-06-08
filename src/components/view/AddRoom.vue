@@ -1,4 +1,5 @@
 <template>
+
   <b-row>
     <b-col align-self="start">&nbsp;</b-col>
     <b-col cols="6" align-self="center">
@@ -19,6 +20,7 @@
     </b-col>
     <b-col align-self="end">&nbsp;</b-col>
   </b-row>
+
 </template>
 
 <script>
