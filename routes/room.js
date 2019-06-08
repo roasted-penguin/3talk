@@ -37,7 +37,7 @@ router.put('/:id', function(req, res, next) {
 
 /* DELETE ROOM */
 router.delete('/:id', function(req, res, next) {
-  Room.findByIdAndRemove(req.params.id, req.body, function (err, post) {
+  Room.findByIdAndRemove(req.params.id, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });

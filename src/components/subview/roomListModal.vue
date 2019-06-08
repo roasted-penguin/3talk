@@ -8,7 +8,7 @@
 
 <b-table id="chatListTable" striped hover :items="rooms" :fields="fields">
   <template slot="actions" scope="row">
-    <b-btn size="sm" @click.stop="join(row.item._id)">Join</b-btn>
+    <b-btn size="sm" @click.stop="join(row.item._id)" @contextmenu.prevent="remove(row.item._id)">Join</b-btn>
   </template>
 </b-table>
 
@@ -77,6 +77,15 @@ export default {
 
   },
 
+    remove (id) {
+      console.log(id)
+      axios.delete('http://localhost:3000/api/room/'+id)
+      .then(response => {
+        this.$router.go(0);
+      })
+
+  },
+
   open : function(ev){
   this.modalIsOpen = true;
   },
@@ -84,7 +93,6 @@ export default {
   close : function(ev){
   this.modalIsOpen = false;
   }
-
   }
 }
 </script>
