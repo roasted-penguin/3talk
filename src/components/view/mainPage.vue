@@ -14,9 +14,9 @@ import axios from 'axios'
 import roomListModal from '@/components/subview/roomListModal'
 
 export default {
-  name: 'RoomList',
+  name: 'main',
 
-  component  : {
+  components  : {
     roomListModal
   },
 
