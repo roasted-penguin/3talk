@@ -1,56 +1,58 @@
 <template>
-  <b-row>
-  
-    <b-col cols="12">
-      <h2>
-        <!-- Room을 Roomname이 저장된 db에서 받아온 방이름으로 바꿔야함 -->
-        roomname - <b-btn size="sm" @click.stop="logout()">Logout</b-btn>        
-      </h2>
-      <b-list-group class="panel-body" v-chat-scroll>
-        <b-list-group-item v-for="(item, index) in chats" class="chat">
+<div id="chatroom-container">
 
-          <div class="right clearfix" v-if="item.nickname === nickname">
-            <b-img right src="http://placehold.it/50/55C1E7/fff&text=ME" rounded="circle" width="50" height="50" alt="img" class="m-1" />
-            <div class="chat-body clearfix">
-              <div class="header">
-                <strong class="primary-font">{{ item.nickname }}</strong> <small class="pull-left text-muted">
-                <span class="glyphicon glyphicon-time"></span>{{ item.created_date }}</small>
-              </div>
-              <p>{{ item.message }}</p>
-            </div>
-          </div>
+<div id="chatroom-header">
+<img src="@/assets/backbtn.png" @click.stop="logout()"></img> 
+<span>{{room.room_name}}</span>
+</div>
 
-          <div class="left clearfix" v-else>
-            <b-img left src="http://placehold.it/50/55C1E7/fff&text=U" rounded="circle" width="50" height="50" alt="img" class="m-1" />
-            <div class="chat-body clearfix">
-              <div class="header">
-                <strong class="primary-font">{{ item.nickname }}</strong> <small class="pull-left text-muted">
-                <span class="glyphicon glyphicon-time"></span>{{ item.created_date }}</small>
-              </div>
-              <p>{{ item.message }}</p>
-            </div>
-          </div>
 
-        </b-list-group-item>
-      </b-list-group>
+<b-list-group class="panel-body" v-chat-scroll>
+<b-list-group-item v-for="(item, index) in chats" class="chat">
 
-      <ul v-if="errors && errors.length">
-        <li v-for="error of errors">
-          {{error.message}}
-        </li>
-      </ul>
+<div class="right clearfix" v-if="item.nickname === nickname">
+<b-img right src="http://placehold.it/50/55C1E7/fff&text=ME" rounded="circle" width="50" height="50" alt="img" class="m-1" />
+<div class="chat-body clearfix">
+  <div class="header">
+    <strong class="primary-font">{{ item.nickname }}</strong> <small class="pull-left text-muted">
+    <span class="glyphicon glyphicon-time"></span>{{ item.created_date }}</small>
+  </div>
+  <p>{{ item.message }}</p>
+</div>
+</div>
 
-      <b-form @submit="onSubmit" class="chat-form">
-        <b-input-group prepend="Message  ">
-          <b-form-input id="message" :state="state" v-model.trim="chat.message"></b-form-input>
-          <b-input-group-append>
-            <b-btn type="submit" variant="info">Send</b-btn>
-          </b-input-group-append>
-        </b-input-group>
-      </b-form>
+<div class="left clearfix" v-else>
+  <b-img left src="http://placehold.it/50/55C1E7/fff&text=U" rounded="circle" width="50" height="50" alt="img" class="m-1" />
+  <div class="chat-body clearfix">
+    <div class="header">
+      <strong class="primary-font">{{ item.nickname }}</strong> <small class="pull-left text-muted">
+      <span class="glyphicon glyphicon-time"></span>{{ item.created_date }}</small>
+    </div>
+    <p>{{ item.message }}</p>
+  </div>
+</div>
 
-    </b-col>
-  </b-row>
+</b-list-group-item>
+</b-list-group>
+
+<ul v-if="errors && errors.length">
+<li v-for="error of errors">
+  {{error.message}}
+</li>
+</ul>
+
+<div id="chatroom-footer">
+<b-form @submit="onSubmit" class="chat-form">
+  <b-input-group>
+    <b-form-input id="message" :state="state" v-model.trim="chat.message"></b-form-input>
+    <b-input-group-append>
+      <b-btn type="submit" variant="info">Send</b-btn>
+    </b-input-group-append>
+  </b-input-group>
+</b-form>
+</div>
+
+</div>
 </template>
 
 <script>
@@ -68,6 +70,7 @@ export default {
       chats: [],
       errors: [],
       nickname: this.$route.params.nickname,
+      room: [],
       chat: {},
       socket: io('http://localhost:4000')
     }
@@ -79,6 +82,14 @@ export default {
     })
     .catch(e => {
       this.errors.push(e)
+    })
+
+    axios.get('http://localhost:3000/api/room/' + this.$route.params.id)
+    .then(response =>{
+      this.room = response.data
+    })
+    .catch(e=>{
+    this.errors.push(e)
     })
 
     this.socket.on('new-message', function (data) {
@@ -112,6 +123,83 @@ export default {
 </script>
 
 <style>
+
+#chatroom-container{
+  display : flex;
+  flex-direction : column;
+  justify-content: space-between;
+  position : relative;
+  height : 100vh;
+}
+
+#chatroom-header{
+  display : flex;
+  position: relative;
+  flex-direction : row;
+  justify-content : center;
+  align-items : center;
+  background-color:#2395fc;
+  height : 10vh;
+  color : #fff;
+  font-size : 1.5rem;
+}
+
+#chatroom-header > img{
+  position: absolute;
+  top : 10px;
+  left : 10px;
+  height: 7vh;
+  width : 7vh;
+
+}
+
+#chatroom-footer{
+display : flex;
+flex-direction : row;
+justify-content : space-around;
+height: 15vh;
+bottom:0;
+}
+
+#chatroom-footer input{
+  flex-grow : 2;
+  margin-right : 30px;
+}
+#chatroom-footer button {
+  background-color : #9edaff;
+
+}
+
+
+div.list-group{
+  margin: 5vh 0 ;
+  flex-grow : 2;
+  scrollbar-width: none; /* Firefox */
+-ms-overflow-style: none; /* IE 10+ */
+}
+
+div.list-group::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
+
+div.list-group-item{
+  border : 0;
+}
+
+div.chatbody{
+  max-width : 300px;
+}
+
+div.right div.chatbody{
+  background-color : #9edaff !important;
+}
+
+div.left div.chatbody{
+  background-color : #efefef !important;
+}
+
+
   /* left,right 채팅블록. margin : 그림과 text사이 간격 */
   .chat .left .chat-body {
     text-align: left;
@@ -139,4 +227,8 @@ export default {
     margin: 20px auto;
     width: 80%;
   }
+
+
+
+
 </style>
