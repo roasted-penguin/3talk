@@ -8,7 +8,7 @@
 
 <b-table id="chatListTable" hover :items="rooms" :fields="fields">
   <template slot="actions" scope="row">
-    <b-btn size="sm" @click.stop="join(row.item._id)" @contextmenu.prevent="remove(row.item._id)">Join</b-btn>
+    <b-btn class="joinbtn" size="sm" @click.stop="join(row.item._id)" @contextmenu.prevent="remove(row.item._id)">Join</b-btn>
   </template>
 </b-table>
 
@@ -136,7 +136,9 @@ scrollbar-width: none; /* Firefox */
   font-weight : 600;
   color : #666;
 }
-
+#chatListTable button.joinbtn{
+  background-color : #ddd;
+}
 #chatListTable> thead{
   border : 0px;
 }
@@ -154,6 +156,10 @@ scrollbar-width: none; /* Firefox */
   color : #fff !important;
   font-size : 1.1em;
   transition : all 0.3s ease-in-out;
+}
+
+#chatListTable tr:hover button{
+  background-color : #9edaff;
 }
 
 
