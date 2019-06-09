@@ -8,7 +8,7 @@
 
 <b-table id="chatListTable" striped hover :items="rooms" :fields="fields">
   <template slot="actions" scope="row">
-    <b-btn size="sm" @click.stop="join(row.item._id)">Join</b-btn>
+    <b-btn size="sm" @click.stop="join(row.item._id)" @contextmenu.prevent="remove(row.item._id)">Join</b-btn>
   </template>
 </b-table>
 
@@ -19,12 +19,18 @@
 </ul>
     
 
-<img id="addRoomBtn" src="@/assets/openbtn.png" @click="open" v-show="!modalIsOpen"></img>
+<img id="addRoomBtn" src="@/assets/openbtn.png" @click="open" v-show="!addRoomModalIsOpen"></img>
 
-<div id="addRoomModal" v-show="modalIsOpen">
+<div id="addRoomModal" v-show="addRoomModalIsOpen">
   <addRoomModal></addRoomModal>
   <img id="close-addRoomBtn"src="@/assets/closebtn.png" @click ="close"></img>
 </div>
+
+<div id="joinRoomModal" v-show="joinRoomModalIsOpen">
+<joinRoomModal :Rid="rooms_id"></joinRoomModal>
+<img id="close-addRoomBtn"src="@/assets/closebtn.png" @click ="close"></img>
+</div>
+
 </div>
 
 </template>
@@ -33,13 +39,15 @@
 
 import axios from 'axios'
 import addRoomModal from '@/components/subview/addRoomModal'
+import joinRoomModal from '@/components/subview/joinRoomModal'
 
 export default {
   name: 'roomListModal',
 
   components : {
 
-  addRoomModal
+  addRoomModal,
+  joinRoomModal
   
   },
 
@@ -53,7 +61,9 @@ export default {
       },
       rooms: [],
       errors: [],
-      modalIsOpen : false
+      rooms_id : "" ,
+      addRoomModalIsOpen : false,
+      joinRoomModalIsOpen : false
     }
   },
 
@@ -69,22 +79,28 @@ export default {
 
   methods: {
     join (id) {
+      this.joinRoomModalIsOpen = true;
+      this.rooms_id = id;
+
+  },
+
+    remove (id) {
       console.log(id)
-      this.$router.push({
-        name: 'JoinRoom',
-        params: { id: id }
+      axios.delete('http://localhost:3000/api/room/'+id)
+      .then(response => {
+        this.$router.go(0);
       })
 
   },
 
   open : function(ev){
-  this.modalIsOpen = true;
+  this.addRoomModalIsOpen = true;
   },
   
   close : function(ev){
-  this.modalIsOpen = false;
+  this.addRoomModalIsOpen = false;
+  this.joinRoomModalIsOpen = false;
   }
-
   }
 }
 </script>
@@ -124,6 +140,18 @@ scrollbar-width: none; /* Firefox */
 }
 
 #addRoomModal{
+  display : flex;
+  flex-direction: column;
+  align-items : center;
+  position : absolute;
+  align-self: center;
+  bottom: 10px;
+  width : 400px;
+  background-color : #fff;
+  border : 2px solid #eee;
+}
+
+#joinRoomModal{
   display : flex;
   flex-direction: column;
   align-items : center;
