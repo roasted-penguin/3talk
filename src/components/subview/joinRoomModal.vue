@@ -1,19 +1,15 @@
 <template>
 
-<div>
+<div id="joinroom-container">
 
-<h2>
-  Join Room
-  <b-link href="#/">(Room List)</b-link>
-</h2>
+<span>Join Room</span>
 
 <b-form @submit="onSubmit">
   <b-form-group id="fieldsetHorizontal"
             horizontal
             :label-cols="4"
-            breakpoint="md"
-            label="Enter Nickname">
-    <b-form-input id="nickname" :state="state" v-model.trim="chat.nickname"></b-form-input>
+            breakpoint="md">
+    <b-form-input id="nickname" :state="state" v-model.trim="chat.nickname" placeholder="nickname"></b-form-input>
   </b-form-group>
 
   <b-button type="submit" variant="primary">Join</b-button>
@@ -70,3 +66,17 @@ export default {
 }
 
 </script>
+<style>
+#joinroom-container{
+  position : relative;
+  display : flex;
+  flex-direction : row;
+  justify-content : center;
+}
+#joinroom-container > span{
+  position: absolute;
+}
+#joinroom-container>form{
+  margin-top : 40px;
+}
+</style>

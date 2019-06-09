@@ -6,7 +6,7 @@
 
 
 
-<b-table id="chatListTable" striped hover :items="rooms" :fields="fields">
+<b-table id="chatListTable" hover :items="rooms" :fields="fields">
   <template slot="actions" scope="row">
     <b-btn size="sm" @click.stop="join(row.item._id)" @contextmenu.prevent="remove(row.item._id)">Join</b-btn>
   </template>
@@ -23,12 +23,12 @@
 
 <div id="addRoomModal" v-show="addRoomModalIsOpen">
   <addRoomModal></addRoomModal>
-  <img id="close-addRoomBtn"src="@/assets/closebtn.png" @click ="close"></img>
+  <img id="close-addRoomBtn" class="shadow" src="@/assets/closebtn.png" @click ="close"></img>
 </div>
 
 <div id="joinRoomModal" v-show="joinRoomModalIsOpen">
 <joinRoomModal :Rid="rooms_id"></joinRoomModal>
-<img id="close-addRoomBtn"src="@/assets/closebtn.png" @click ="close"></img>
+<img id="close-addRoomBtn" class="shadow" src="@/assets/closebtn.png" @click ="close"></img>
 </div>
 
 </div>
@@ -82,6 +82,7 @@ export default {
       this.joinRoomModalIsOpen = true;
       this.rooms_id = id;
 
+
   },
 
     remove (id) {
@@ -108,10 +109,12 @@ export default {
 <style>
 
 #Modal-container{
+padding : 10px;
+box-sizing: border-box;
 position:relative;
 display : flex;
 flex-direction : column;
-background-color : #eee;
+background-color : #fafafa;
 width  : 30vw;
 min-width : 450px;
 height : 70vh;
@@ -124,22 +127,59 @@ scrollbar-width: none; /* Firefox */
     width: 0;
     height: 0;
 }
+
+
 #chatListTable{
+  font-size : 0.8em;
+  border-collapse : separate;
+  border-spacing : 0em 0.7em;
+  font-weight : 600;
+  color : #666;
 }
+
+#chatListTable> thead{
+  border : 0px;
+}
+#chatListTable > thead *{
+  border : 0px;
+}
+
+#chatListTable > tbody *{
+  border : 0px;
+}
+
+#chatListTable tr:hover{
+  border-radius : 15px;
+  background-color : #2395fc;
+  color : #fff !important;
+  font-size : 1.1em;
+  transition : all 0.3s ease-in-out;
+}
+
+
+
+
+
 #addRoomBtn {
   position : fixed;
   bottom : 10px;
-  width : 50px;
+  width : 40px;
   right : 50%;
   transform : translateX(50%);
  align-self: center;
  margin-bottom : 50px;
 }
+
 #close-addRoomBtn{
   width : 30px;
+  position: absolute;
+  right : 7px;
+  top : 7px;
 }
 
 #addRoomModal{
+  padding : 10px;
+  box-sizing : border-box;
   display : flex;
   flex-direction: column;
   align-items : center;
@@ -152,6 +192,8 @@ scrollbar-width: none; /* Firefox */
 }
 
 #joinRoomModal{
+  padding : 10px;
+  box-sizing : border-box;
   display : flex;
   flex-direction: column;
   align-items : center;

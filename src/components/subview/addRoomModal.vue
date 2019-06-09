@@ -2,7 +2,7 @@
 <div>
 <div id="addroom-container">
 
-<span>Add Room</span>
+<span class="fs600">Add Room</span>
 
 <b-form @submit="onSubmit">
 <b-form-group id="fieldsetHorizontal">
@@ -42,6 +42,11 @@ export default {
 </script>
 
 <style>
+
+#fs600{
+  font-weight : 600;  
+}
+
 #addroom-container{
   position : relative;
   display : flex;
@@ -52,6 +57,6 @@ export default {
   position: absolute;
 }
 #addroom-container>form{
-  margin-top : 50px;
+  margin-top : 40px;
 }
 </style>

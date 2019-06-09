@@ -34,4 +34,10 @@ export default {
   height : 100vh;
   background-color : #fff;
 }
+
+.shadow{
+  filter: drop-shadow(0px 0px 32px #9f9f9f);
+-webkit-filter: drop-shadow(0px 0px 32px #9f9f9f);
+-moz-filter: drop-shadow(0px 0px 32px #9f9f9f);
+}
 </style>
