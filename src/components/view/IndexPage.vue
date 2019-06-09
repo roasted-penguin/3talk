@@ -5,7 +5,7 @@
 
 <form action="#" >
 
-<blueButton @click="handleClick" v-on:mouseover="handleHover" >Enter</blueButton>
+<blueButton id="enterbtn" @click="handleClick" >Enter</blueButton>
 
 </form>
 
@@ -28,7 +28,7 @@ export default {
 
   data () {
     return {
-     
+     active : false,
      modalIsOpen :  false
 
 
@@ -42,10 +42,6 @@ export default {
   methods: {
     handleClick : function(ev){
     this.$router.push('/main');
-    },
-
-    handleHover : function(ev){
-      this.$el.querySelector('blueButton').style.border = "1px solid #fff";
     },
 
     formOpen : function(ev){
@@ -99,6 +95,13 @@ form> TalkButton{
     height: 1px; width: 1px;
     overflow: hidden;
     clip: rect(1px 1px 1px 1px); 
+}
+
+ #enterbtn {
+
+min-width:100px;
+width : 10vw;
+letter-spacing : 0.1em;
 }
 
 </style>
