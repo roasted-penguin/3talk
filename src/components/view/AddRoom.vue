@@ -5,7 +5,7 @@
     <b-col cols="6" align-self="center">
       <h2>
         Add Room
-        <b-link href="#/">(Room List)</b-link>
+        <b-link href="#/main">(Room List)</b-link>
       </h2>
       <b-form @submit="onSubmit">
         <b-form-group id="fieldsetHorizontal"
