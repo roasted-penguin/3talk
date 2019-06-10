@@ -9,7 +9,7 @@
   </div>
 
   <div id="random-entry" v-show="currentnumber % baners.length == 2" >
-  <p>Do chat randomly!</p>
+  <p>Do chat FRESH!</p>
   <b-button @click="random" >random </b-button>
   </div>
 </div>
@@ -104,9 +104,18 @@ export default {
 
 #random-entry{
   position: absolute;
-  top: 10px;
+  top: 50px;
   right : 20px;
   z-index : 2;
+}
+
+#random-entry >p {
+  color : #fff;
+  font-size : 1.5rem;
+}
+
+#random-entry > button {
+  transform : translateX(10px);
 }
 
 
