@@ -3,11 +3,7 @@
 
 <img src="@/assets/logo.png" id ="logo">
 
-<form action="#" >
-
-<blueButton id="enterbtn" @click="handleClick" >Enter</blueButton>
-
-</form>
+<b-button id="enterbtn" @click="handleClick" >Enter</b-button>
 
 </div>
 
@@ -16,15 +12,9 @@
 <script>
 
 import axios from 'axios'
-import BlueButton from '@/components/src/blueButton'
 
 export default {
   name: 'LoginPage',
-
-  components :{
-  	BlueButton,
- 
-  },
 
   data () {
     return {
@@ -42,16 +32,7 @@ export default {
   methods: {
     handleClick : function(ev){
     this.$router.push('/main');
-    },
-
-    formOpen : function(ev){
-    this.modalIsOpen = true;
-    },
-
-    formClose : function(ev){
-    this.modalIsOpen = false;
     }
-
   }
 }
 </script>
@@ -62,6 +43,7 @@ export default {
   padding : 30px;
 	display : flex;
 	flex-direction : column;
+  justify-content : space-around;
 	align-items: center;
   background-image : url("~@/assets/login_background.png") !important;
   background-size : cover;
@@ -74,22 +56,21 @@ export default {
 	transfrom: traslateY(-15%);
 }
 
-form {
 
-	margin-top : 3em;
-	display : flex;
-	flex-direction : column;
-	align-items: center;
-}
+#enterbtn{
+  background-color : #017bff;
+  border : 0;
+  padding : 0.6em 1.3em;  
+  min-width:100px;
+  width : 10vw;
+  letter-spacing : 0.1em;
+  margin-top : 30px;
+  margin-bottom : 100px;
+  font-weight:600;
 
-form > *{
-	margin: 0.3em;
-}
+ }
 
-form> TalkButton{
-	padding : 0.6em 1.3em;	
-}
- 
+
  .a11y-hidden{
 	position: absolute !important;
     height: 1px; width: 1px;
@@ -97,11 +78,5 @@ form> TalkButton{
     clip: rect(1px 1px 1px 1px); 
 }
 
- #enterbtn {
-
-min-width:100px;
-width : 10vw;
-letter-spacing : 0.1em;
-}
 
 </style>
