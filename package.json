@@ -1,9 +1,8 @@
 {
   "name": "3talk",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "opensource chatting app",
   "author": "333people",
-  "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run build && node ./bin/www",
@@ -49,6 +48,8 @@
     "copy-webpack-plugin": "^4.0.1",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.28.0",
+    "electron": "^5.0.3",
+    "electron-packager": "^13.1.1",
     "eslint": "^4.15.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",
@@ -95,5 +96,18 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roasted-penguin/3talk.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/roasted-penguin/3talk/issues"
+  },
+  "homepage": "https://github.com/roasted-penguin/3talk#readme"
 }
