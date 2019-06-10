@@ -8,7 +8,7 @@
 
 
 <b-list-group class="panel-body" v-chat-scroll>
-<b-list-group-item v-for="(item, index) in chats" class="chat">
+<b-list-group-item v-for="item in chats" :key="item.id" class="chat">
 
 <div class="right clearfix" v-if="item.nickname === nickname">
 <div class="chat-body clearfix">
@@ -36,7 +36,7 @@
 </b-list-group>
 
 <ul v-if="errors && errors.length">
-<li v-for="error of errors">
+<li v-for="error of errors" :key="error.id">
   {{error.message}}
 </li>
 </ul>
