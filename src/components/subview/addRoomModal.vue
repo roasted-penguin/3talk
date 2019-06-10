@@ -59,4 +59,7 @@ export default {
 #addroom-container>form{
   margin-top : 40px;
 }
+#addroom-container form button{
+  align-self :center !important;
+}
 </style>

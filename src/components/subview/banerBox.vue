@@ -8,7 +8,7 @@
 
   </div>
 
-  <div id="random-entry" v-show="currentnumber % baners.length == 0" >
+  <div id="random-entry" v-show="currentnumber % baners.length == 2" >
   <p>Do chat randomly!</p>
   <b-button @click="random" >random </b-button>
   </div>
@@ -16,7 +16,7 @@
 
 </template>
 <script>
-import banner1 from '@/assets/banner1.png'
+import banner1 from '@/assets/banner1.jpg'
 import banner2 from '@/assets/banner2.png'
 import banner3 from '@/assets/banner3.png'
 import axios from 'axios'
