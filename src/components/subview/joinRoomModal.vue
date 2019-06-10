@@ -5,10 +5,7 @@
 <span>Join Room</span>
 
 <b-form @submit="onSubmit">
-  <b-form-group id="fieldsetHorizontal"
-            horizontal
-            :label-cols="4"
-            breakpoint="md">
+  <b-form-group id="fieldsetHorizontal">
     <b-form-input id="nickname" :state="state" v-model.trim="chat.nickname" placeholder="nickname"></b-form-input>
   </b-form-group>
 
@@ -78,5 +75,8 @@ export default {
 }
 #joinroom-container>form{
   margin-top : 40px;
+}
+#joinroom-container button{
+  transform : translateX(125%);
 }
 </style>
