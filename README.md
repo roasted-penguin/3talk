@@ -24,5 +24,11 @@
 |Deokyoun Kim| Back end |
 |Taewoong Kim| Back end |
 
+# Set up
+``` bash
+npm install
+npm start
+```
+
 # License
 [MIT](http://opensource.org/licenses/MIT)
