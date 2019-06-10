@@ -42,6 +42,10 @@ export default {
 
 <style>
 
+  button {
+   background-color : #017bff;
+  }
+
 #banner-container {
   position: relative;
   width : 40vw;

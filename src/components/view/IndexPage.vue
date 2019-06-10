@@ -5,7 +5,7 @@
 
 <form action="#" >
 
-<blueButton id="enterbtn" @click="handleClick" >Enter</blueButton>
+<b-button id="enterbtn" @click="handleClick" >Enter</b-button>
 
 </form>
 
@@ -16,15 +16,9 @@
 <script>
 
 import axios from 'axios'
-import BlueButton from '@/components/src/blueButton'
 
 export default {
   name: 'LoginPage',
-
-  components :{
-  	BlueButton,
- 
-  },
 
   data () {
     return {
@@ -42,16 +36,7 @@ export default {
   methods: {
     handleClick : function(ev){
     this.$router.push('/main');
-    },
-
-    formOpen : function(ev){
-    this.modalIsOpen = true;
-    },
-
-    formClose : function(ev){
-    this.modalIsOpen = false;
     }
-
   }
 }
 </script>
@@ -86,10 +71,18 @@ form > *{
 	margin: 0.3em;
 }
 
-form> TalkButton{
-	padding : 0.6em 1.3em;	
-}
+
  
+ button#enterbtn{
+  background-color : #017bff;
+  border : 0;
+  padding : 0.6em 1.3em;  
+ }
+
+ button#enterbtn :hover{
+  background-color : #fff;
+ }
+
  .a11y-hidden{
 	position: absolute !important;
     height: 1px; width: 1px;

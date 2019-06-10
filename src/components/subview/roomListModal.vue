@@ -191,7 +191,8 @@ scrollbar-width: none; /* Firefox */
   align-items : center;
   position : absolute;
   align-self: center;
-  bottom: 10px;
+  bottom: 125px;
+  transform : translateY(50%);
   width : 400px;
   background-color : #fff;
   border : 2px solid #eee;
@@ -205,7 +206,8 @@ scrollbar-width: none; /* Firefox */
   align-items : center;
   position : absolute;
   align-self: center;
-  bottom: 10px;
+  bottom: 125px;
+  transform : translateY(50%);
   width : 400px;
   background-color : #fff;
   border : 2px solid #eee;
