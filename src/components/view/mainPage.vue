@@ -1,11 +1,7 @@
 <template>
 
 <div id="main_container">
-<div id="banner-container">
-<pre class="banner-text">Free Open Talk, 
-3Talk</pre>
-<img  id="banner" src ="@/assets/banner1.png"></img>
-</div>
+<banerBox></banerBox>
 <roomListModal></roomListModal>
 </div>
 
@@ -14,12 +10,14 @@
 <script>
 import axios from 'axios'
 import roomListModal from '@/components/subview/roomListModal'
+import banerBox from '@/components/subview/banerBox'
 
 export default {
   name: 'main',
 
   components  : {
-    roomListModal
+    roomListModal,
+    banerBox
   },
 
   data () {
@@ -41,31 +39,6 @@ export default {
 </script>
 
 <style>
-
-  button {
-   background-color : #017bff;
-  }
-
-#banner-container {
-  position: relative;
-  width : 40vw;
-  min-width : 500px;
-}
-
-.banner-text{
-  position : absolute;
-  top : 80px;
-  left : 40px;
-  font-weight : 700;
-  font-size : 1.5rem;
-  color: #444;
-}
-
-
-#banner{
-  width : 40vw;
-  min-width : 500px;
-}
 
 #main_container {
   height : 100vh;

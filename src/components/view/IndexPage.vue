@@ -3,11 +3,7 @@
 
 <img src="@/assets/logo.png" id ="logo">
 
-<form action="#" >
-
 <b-button id="enterbtn" @click="handleClick" >Enter</b-button>
-
-</form>
 
 </div>
 
@@ -47,6 +43,7 @@ export default {
   padding : 30px;
 	display : flex;
 	flex-direction : column;
+  justify-content : space-around;
 	align-items: center;
   background-image : url("~@/assets/login_background.png") !important;
   background-size : cover;
@@ -59,29 +56,20 @@ export default {
 	transfrom: traslateY(-15%);
 }
 
-form {
 
-	margin-top : 3em;
-	display : flex;
-	flex-direction : column;
-	align-items: center;
-}
-
-form > *{
-	margin: 0.3em;
-}
-
-
- 
- button#enterbtn{
+#enterbtn{
   background-color : #017bff;
   border : 0;
   padding : 0.6em 1.3em;  
+  min-width:100px;
+  width : 10vw;
+  letter-spacing : 0.1em;
+  margin-top : 30px;
+  margin-bottom : 100px;
+  font-weight:600;
+
  }
 
- button#enterbtn :hover{
-  background-color : #fff;
- }
 
  .a11y-hidden{
 	position: absolute !important;
@@ -90,11 +78,5 @@ form > *{
     clip: rect(1px 1px 1px 1px); 
 }
 
- #enterbtn {
-
-min-width:100px;
-width : 10vw;
-letter-spacing : 0.1em;
-}
 
 </style>
