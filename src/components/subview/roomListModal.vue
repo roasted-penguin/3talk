@@ -115,8 +115,8 @@ position:relative;
 display : flex;
 flex-direction : column;
 background-color : #fafafa;
-width  : 30vw;
-min-width : 450px;
+width  : 40vw;
+min-width : 500px;
 height : 70vh;
 overflow-y : scroll;
 scrollbar-width: none; /* Firefox */
@@ -173,7 +173,7 @@ scrollbar-width: none; /* Firefox */
   right : 50%;
   transform : translateX(50%);
  align-self: center;
- margin-bottom : 50px;
+ margin-bottom : 20px;
 }
 
 #close-addRoomBtn{
