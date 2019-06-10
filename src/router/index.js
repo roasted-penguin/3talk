@@ -1,19 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import RoomList from '@/components/view/RoomList'
+import mainPage from '@/components/view/mainPage'
 import AddRoom from '@/components/view/AddRoom'
 import JoinRoom from '@/components/view/JoinRoom'
 import ChatRoom from '@/components/view/ChatRoom'
-import LoginPage from '@/components/view/LoginPage'
+import IndexPage from '@/components/view/IndexPage'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/room-list',
-      name: 'RoomList',
-      component: RoomList
+      path: '/main',
+      name: 'mainPage',
+      component: mainPage
     },
     {
       path: '/add-room',
@@ -32,8 +32,8 @@ export default new Router({
     },
     {
       path: '/',
-      name: 'LoginPage',
-      component: LoginPage
+      name: 'IndexPage',
+      component: IndexPage
     }
 
   ]

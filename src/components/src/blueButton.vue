@@ -1,5 +1,5 @@
 <template>
-<button class="blueButton" :disabled="disabled" type="button" @click="handleClick" @mouseover="handleHover"><slot /></button>
+<button class="blueButton" :disabled="disabled" type="button" @click="handleClick" @mouseover="handleHover" v-bind:class="{on: active, 'off' : !active}"><slot /></button>
 </template>
 <script>
 export default {
@@ -10,6 +10,10 @@ export default {
 	type : {
 	type: String,
 	default : 'button'
+	},
+
+	data : {
+	active : false
 	},
 
 	disabled : {
@@ -25,8 +29,9 @@ export default {
 	},
 
 	handleHover : function(ev){
-	this.$emit('mouseover',ev);
-	this.$el.querySelector('.blueButton').style.display = hidden;
+	console.log("hover");
+	if( this.active ==true) this.active = flase;
+	else this.active = true;
 	}
 
 	}
@@ -41,6 +46,13 @@ export default {
 	border : none;
 	color : #fff;
 	opacity : 1;
+}
+
+.on {
+	background-color : #fff;
+}
+.off{
+	background-color : #017bff;
 }
 
 
