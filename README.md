@@ -1,4 +1,8 @@
  <p align="center">
+  <img width="300" height="300" src="https://github.com/roasted-penguin/3talk/blob/master/src/assets/logo.png">
+</p>
+ 
+ <p align="center">
   <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript"><img src="https://img.shields.io/badge/language-javascript-blue.svg" alt="Language"></a>
   <a href="https://nodejs.org/ko"><img src="https://img.shields.io/badge/-node.js-orange.svg" alt="nodejs"></a>
   <a href="https://www.mongodb.com/"><img src="https://img.shields.io/badge/-mongoDB-red.svg"></a>
