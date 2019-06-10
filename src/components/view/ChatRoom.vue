@@ -44,7 +44,7 @@
 <div id="chatroom-footer">
 <b-form @submit="onSubmit" class="chat-form">
   <b-input-group>
-    <b-form-textarea id="message" :state="state" v-model.trim="chat.message"></b-form-textarea>
+    <b-form-textarea id="message" :state="state" v-model.trim="chat.message" max-rows="2"></b-form-textarea>
     <b-input-group-append>
       <b-btn type="submit" variant="info">Send</b-btn>
     </b-input-group-append>
@@ -146,11 +146,12 @@ export default {
 
 #chatroom-header > img{
   position: absolute;
-  top : 10px;
-  left : 10px;
-  height: 7vh;
-  width : 7vh;
-
+  top : 5vh;
+  transform : translateY(-50%);
+  left : 20px;
+  width : 5vh;
+  opacity : 0.4;
+  align-self : center;
 }
 
 #chatroom-footer{
@@ -159,6 +160,7 @@ flex-direction : row;
 justify-content : space-around;
 height: 15vh;
 bottom:0;
+background-color : #fafafa;
 }
 
 #chatroom-footer textarea{

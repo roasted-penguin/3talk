@@ -61,5 +61,6 @@ export default {
 }
 #addroom-container form button{
   align-self :center !important;
+  transform : translateX(125%);
 }
 </style>
