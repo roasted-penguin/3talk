@@ -11,7 +11,6 @@
 <b-list-group-item v-for="(item, index) in chats" class="chat">
 
 <div class="right clearfix" v-if="item.nickname === nickname">
-<b-img right src="http://placehold.it/50/55C1E7/fff&text=ME" rounded="circle" width="50" height="50" alt="img" class="m-1" />
 <div class="chat-body clearfix">
   <div class="header">
     <strong class="primary-font">{{ item.nickname }}</strong> <small class="pull-left text-muted">
@@ -19,6 +18,7 @@
   </div>
   <p>{{ item.message }}</p>
 </div>
+<b-img right src="http://placehold.it/50/55C1E7/fff&text=ME" rounded="circle" width="50" height="50" alt="img" class="m-1" />
 </div>
 
 <div class="left clearfix" v-else>
@@ -44,7 +44,7 @@
 <div id="chatroom-footer">
 <b-form @submit="onSubmit" class="chat-form">
   <b-input-group>
-    <b-form-input id="message" :state="state" v-model.trim="chat.message"></b-form-input>
+    <b-form-textarea id="message" :state="state" v-model.trim="chat.message"></b-form-textarea>
     <b-input-group-append>
       <b-btn type="submit" variant="info">Send</b-btn>
     </b-input-group-append>
@@ -161,17 +161,20 @@ height: 15vh;
 bottom:0;
 }
 
-#chatroom-footer input{
+#chatroom-footer textarea{
   flex-grow : 2;
   margin-right : 30px;
 }
 #chatroom-footer button {
   background-color : #9edaff;
+  border : 0;
 
 }
 
 
 div.list-group{
+  display : flex;
+  flex-direction : column;
   margin: 5vh 0 ;
   flex-grow : 2;
   scrollbar-width: none; /* Firefox */
@@ -187,29 +190,37 @@ div.list-group-item{
   border : 0;
 }
 
-div.chatbody{
+div.chat-body{
   max-width : 300px;
+  padding : 10px;
+  margin : 0 5px;
+  font-size : 0.8rem;
+  border-radius : 1.5em;
 }
 
-div.right div.chatbody{
+div.right {
+  display : flex;
+  flex-direction: row;
+  justify-content : flex-end;
+}
+
+div.right div.chat-body{
+text-align: right;
+padding-left : 25px;
   background-color : #9edaff !important;
 }
+div.left {
+  display : flex;
+  flex-direction: row;
+  padding-right : 25px;
+  justify-content : flex-start;
+}
 
-div.left div.chatbody{
+div.left div.chat-body{
+ text-align: left;
   background-color : #efefef !important;
 }
 
-
-  /* left,right 채팅블록. margin : 그림과 text사이 간격 */
-  .chat .left .chat-body {
-    text-align: left;
-    margin-left: 80px;
-  }
-
-  .chat .right .chat-body {
-    text-align: right;
-    margin-right: 80px;
-  }
 
   /* 채팅글자 */
   .chat .chat-body p {
